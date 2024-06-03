@@ -1,0 +1,57 @@
+/**
+Trabalho da Disciplina de Programação de JavaScript
+Turma: 963N
+Aluno: Guilherme Lemos Oliveira
+Matrícula: 2024100475
+*/
+ 
+function fVerificarPrimo(num: any){
+    if(num<2){
+        return false;    
+    }//if
+ 
+    for(let i=num-1; i>=2;i--){
+        let resto = num % i;
+        if(resto == 0){
+            return false;
+        }//if
+    }//for
+    return true;
+}
+ 
+function fImprimir_K_Maiores_Primos(num: any, qtde: any){
+    console.log("** K Maiores  **")
+    let contador = 0;
+    for(let i=num; i>=2; i--){
+        let ehPrimo = fVerificarPrimo(i);
+        if(ehPrimo){
+            console.log("O número ["+i +"] é primo!");
+            contador++;
+            if(contador==qtde){
+                return;
+            }//if
+        }//if
+    }//for
+}
+ 
+ 
+function fImprimir_K_Menores_Primos(num: any, qtde: any){
+    console.log("** K Menores  **")
+    let contador = 0;
+    for(let i=2; i <= num; i++){
+        let ehPrimo = fVerificarPrimo(i);
+        if(ehPrimo){
+            console.log("O número ["+ i +"] é primo!");
+            contador++;
+            if(contador==qtde){
+                return;
+            }//if
+        }//if
+    }//for
+}
+ 
+ 
+let numero = parseInt(prompt("Digite um número"));
+let qtdePrimos = parseInt(prompt("Digite a quantidade máxima de números primos que deseja visualizar"));
+fImprimir_K_Maiores_Primos(numero, qtdePrimos);
+fImprimir_K_Menores_Primos(numero, qtdePrimos);
